@@ -1,0 +1,168 @@
+
+
+* {
+    transition: all 0.2s ease-in-out;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #052727;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Agatha', sans-serif;
+    overflow: hidden;
+  }
+  
+  @font-face {
+    font-family: 'Agatha';
+    src: url('./font/Agatha.ttf') format('truetype');
+  }
+  
+  /* Your existing CSS code... */
+  
+  /* Style the text elements for a cursive font and LED effect */
+  h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    animation: subtleGlow 3s infinite;
+  }
+  
+  /* Keyframes for the flickering effect */
+  @keyframes subtleGlow {
+    0% {
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 12px rgba(255, 255, 255, 0.5), 0 0 16px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 14px rgba(255, 255, 255, 0.6), 0 0 18px rgba(255, 255, 255, 0.6);
+    }
+    100% {
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 12px rgba(255, 255, 255, 0.5), 0 0 16px rgba(255, 255, 255, 0.5);
+    }
+  }
+  /* Your existing CSS code... */
+  
+  .star {
+    position: absolute;
+    top: -20px;
+    color: #fff;
+    animation: animate 5s linear infinite;
+  }
+  
+  .star::before {
+    content: '\f005';
+    font-family: fontAwesome;
+    text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 50px #fff;
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg);
+    }
+  }
+  
+  .card {
+    text-align: center;
+    padding: 3em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card .text {
+    margin-bottom: 1em;
+  }
+  
+  .card .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+  }
+  
+  .card img.birthday {
+    width: 100%;
+    max-width: 20vw; /* Adjust as needed */
+    max-height: 40vh; /* Adjust as needed */
+  }
+  
+  .card .additional-text {
+    font-family: 'YourFormalFont', sans-serif;
+    font-size: 1em;
+    white-space: normal; /* Allow text to wrap */
+    overflow: hidden;
+    color: #fff;
+    text-align: center; /* Center the text */
+    font-style: italic;
+    margin-top: 1em; /* Adjust spacing */
+  }
+  
+  .card .additional-text span {
+    display: block;
+    opacity: 0;
+    animation: typing 0.5s forwards; /* Adjust the duration as needed */
+  }
+  
+  @keyframes typing {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Your existing media queries... */
+  
+  /* Your existing CSS code... */
+  
+  
+  @media only screen and (max-width: 1000px) {
+    .card img.birthday {
+      max-width: 70vw;
+    }
+  }
+  
+  @media only screen and (max-height: 640px) {
+    .card img.birthday {
+      max-width: 70vw;
+      max-height: unset;
+    }
+  }
+  
+  img.birthday {
+    max-height: 10vh;
+  }
+  
+  .text {
+    padding: 1em;
+  }
+  
+  .muted {
+    opacity: 0.8;
+  }
+  
+  .space {
+    height: 100px;
+  }
+  
+  #music-button {
+    font-family: Arial, Helvetica, sans-serif; /* Replace 'YourNewFont' with the desired font name */
+    display: flex;
+    align-items: center;
+  }
+  

@@ -1,0 +1,87 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <title>Prerna</title>
+</head>
+<body>
+  <script>
+    function stars(){
+      let e = document.createElement('div');
+      e.setAttribute('class', 'star');
+      document.body.appendChild(e);
+      e.style.left = Math.random() * + innerWidth + 'px';
+
+      let size = Math.random() * 12;
+      e.style.fontSize = 12 + size + 'px';
+
+      setTimeout(function(){
+        document.body.removeChild(e);
+      }, 5000)
+    }
+    setInterval(function(){
+      stars()
+    }, 100);
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const spans = document.querySelectorAll(".additional-text span");
+      spans.forEach((span, index) => {
+        span.style.animationDelay = `${index * 3}s`;
+      });
+
+      // Get the audio element
+      const audio = document.getElementById("background-audio");
+
+      // Get the audio controls div
+      const musicButton = document.getElementById("music-button");
+      const playIcon = document.getElementById("play-icon");
+
+      // Toggle play/pause when clicking on the audio controls
+      musicButton.addEventListener("click", function () {
+        if (audio.paused) {
+          audio.play();
+          playIcon.className = "fas fa-pause";
+        } else {
+          audio.pause();
+          playIcon.className = "fas fa-play";
+        }
+      });
+
+      // Start the audio element when the document is loaded
+      audio.play();
+    });
+  </script>
+
+  <div class="audio-controls" style="position: fixed; top: 10px; left: 10px; display: flex; align-items: center; background-color: rgba(255, 255, 255, 0.8); padding: 10px; border-radius: 10px; cursor: pointer;">
+    <span id="music-button" style="display: flex; align-items: center;">Music : <i id="play-icon" class="fas fa-play" style="margin-left: 5px; margin-right: 10px; font-size: 24px;"></i></span>
+  </div>
+
+  <audio id="background-audio" autoplay loop style="display: none;">
+    <source src="audio.mp3" type="audio/mp3">
+  </audio>
+
+  <div class="card">
+    <div class="text">
+      <h1>Happy Birthday Prerna!</h1>
+    </div>
+    <div class="image-container">
+      <img src="./pr.jpeg" alt="birthday" class="birthday">
+      <div class="additional-text" style="padding: 20px;"><br>
+        <!-- Break the quote into two lines -->
+        <span>"There are darknesses in life and there are lights,</span><br>
+        <span>and you are one of the lights, the light of all lights" </span>
+        <span style="display: block; text-align: right;">- Bram Stoker</span>
+      </div>
+    </div>
+    <div class="space"></div>
+  </div>
+</body>
+</html>
